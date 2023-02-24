@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RepoPage from '../components/repoPage.jsx';
+const pageTitle = "Projects";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <RepoPage client:load></RepoPage>
+</BaseLayout>

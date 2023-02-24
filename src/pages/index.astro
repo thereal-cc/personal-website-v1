@@ -1,15 +1,25 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Welcome!";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<div>
+		<div class="hero min-h-[82vh]">
+		  <div class="hero-content flex-col lg:flex-row rounded-2xl shadow-2xl">
+			<img src={"/portfolio-profile.jpg"} alt="Profile Picture" class="max-w-sm rounded-lg shadow-2xl" width={150} height={150}/>
+			<div>
+			  <h1 class="text-5xl font-bold text-slate-100">Hey There!</h1>
+			  <p class="py-6">
+				My name is Carson Cassidy. I&apos;m a junior at Northwest High School, and my life goal is to effectively use StackOverflow for my projects.
+				<br><br/>Right now, I&apos;m working on a couple projects, such as learning React/NEXT.js through the creation of this website, and several uses of 
+				<br><br/>StudentVUE&apos;s API, such as a Discord Bot or terminal access to the API using Python. When I&apos;m not coding, I&apos;m probably either 
+				<br><br/>playing guitar, writing music, or working out. Take a look around, and I hope you enjoy the websites and projects as much as I do!
+			  </p>
+			  <a href="/projects">
+				<button class="btn btn-primary">Get Started</button>
+			  </a>
+			</div>
+		  </div>
+		</div>
+	</div>
+</BaseLayout>
