@@ -11,7 +11,7 @@ export default function Contact() {
         setButtonText('Sending...');
 
         // Send the email
-        const res = await fetch('../api/sendEmail', {
+        const res = await fetch('../pages/api/sendEmail.js', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
