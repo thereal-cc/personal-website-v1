@@ -11,16 +11,16 @@ export default function Contact() {
         setButtonText('Sending...');
 
         // Send the email
-        const res = await fetch('../pages/api/sendEmail.js', {
+        const res = await fetch('api/sendEmail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({email, subject, message })
         });
-
         // Check if the response isn't ok
         const response = await res.json();
+
         if (response.message != "Email sent successfully") {
             setButtonText('Send Message');
             alert(`Error: ${response.message}`);
