@@ -16,7 +16,7 @@ export default function Contact() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({email, subject, message })
+            body: JSON.stringify({email: email, subject: subject, message: message })
         });
         // Check if the response isn't ok
         const response = await res.json();

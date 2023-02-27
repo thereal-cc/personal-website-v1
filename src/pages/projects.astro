@@ -2,9 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RepoCard from '../components/repoCard.jsx';
 import getRepos from '../lib/repositories';
+import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config();
 
 const pageTitle = "Projects";
-const repos = await getRepos(import.meta.env.GITHUB_OAUTH_TOKEN);
+const repos = await getRepos(process.env.GITHUB_OAUTH_TOKEN);
 ---
 
 <BaseLayout pageTitle={pageTitle}>

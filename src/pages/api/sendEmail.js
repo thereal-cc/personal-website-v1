@@ -1,7 +1,9 @@
 import nodemailer from 'nodemailer';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 export async function post({ request }) {
-    const { email, subject, message } = request.body;
+    const { email, subject, message } = await request.json();
 
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
@@ -9,7 +11,7 @@ export async function post({ request }) {
       secure: false,
       auth: {
         user: 'carson.cassidy20@gmail.com',
-        pass: import.meta.env.GMAIL_APP_PASSWORD,
+        pass: process.env.GMAIL_APP_PASSWORD,
       },
     });
 
