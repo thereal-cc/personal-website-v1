@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const getLatestRepos = async (token) => {
-  // console.log("data", data);
   try {
     if (token) {
       const res = await axios.get(
