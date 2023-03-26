@@ -8,7 +8,8 @@ const getLatestRepos = async () => {
     );
 
     let repos = res.data.items;
-    repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+    repos.filter(item => !item.archived); // Remove archived repos
+    repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at)); // Sort by date (latest first)
     return repos.slice(0, 6);
   } catch (err) {
     console.log(err);
