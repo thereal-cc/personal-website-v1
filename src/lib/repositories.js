@@ -1,27 +1,15 @@
 import axios from "axios";
 
-const getLatestRepos = async (token) => {
+const getLatestRepos = async () => {
+  let res;
   try {
-    if (token) {
-      const res = await axios.get(
-        `https://api.github.com/search/repositories?q=user:thereal-cc`,
-        {
-          headers: {
-            Authorization: `token ${token}`,
-          },
-        }
-      );
-      let repos = res.data.items;
-      let latestSixRepos = repos.splice(0, 6);
-      return latestSixRepos;
-    } else {
-      const res = await axios.get(
-        `https://api.github.com/search/repositories?q=user:thereal-cc`
-      );
-      let repos = res.data.items;
-      let latestSixRepos = repos.splice(0, 6);
-      return latestSixRepos;
-    }
+    res = await axios.get(
+      `https://api.github.com/search/repositories?q=user:thereal-cc`
+    );
+
+    let repos = res.data.items;
+    repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+    return repos.slice(0, 6);
   } catch (err) {
     console.log(err);
   }
