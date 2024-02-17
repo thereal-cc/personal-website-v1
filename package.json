@@ -25,9 +25,5 @@
 		"react-dom": "^18.2.0",
 		"sendmail": "^1.6.1",
 		"tailwindcss": "^3.2.7"
-	},
-	"devDependencies": {
-		"cypress": "^12.6.0",
-		"netlify-plugin-cypress": "^1.2.0"
 	}
 }
